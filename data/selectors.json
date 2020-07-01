@@ -20,7 +20,8 @@
     "editNameField": "[name='edit']",
     "editNameFieldLabel": "label",
     "blackBtn": ".btn-black",
-    "error": ".alert"
+    "error": ".alert",
+    "resetLimitF": ".close-button"
   }
 }
 

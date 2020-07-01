@@ -6,7 +6,8 @@
     "addNameFieldLabel": "Enter Counter Title:",
     "defaultValueField": "50",
     "defaultValueFieldLabel": "Enter Initial Count:",
-    "addCounterBtn": "ADD COUNTER"
+    "addCounterBtn": "ADD COUNTER",
+    "totalResultTC186": "Total: 4"
   },
   "counter": {
     "counterName": "1. Default Counter",
@@ -27,7 +28,17 @@
     "countValueTC040": "-1",
     "countValueTC041": "2",
     "inputMin": "1",
-    "inputMax": "9"
+    "inputMax": "9",
+    "input": "5",
+    "countValueTC184": "4"
+  },
+
+  "secondCounterFunctionality": {
+    "countValueTC192": "1000",
+    "countValueTC192res": "999",
+    "countValueTC193": "10000000",
+    "countValueTC193res": "9999998",
+    "countValueTC194res": "10000003"
   }
 }
 

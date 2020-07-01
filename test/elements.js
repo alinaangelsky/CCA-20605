@@ -140,11 +140,89 @@ describe('Complex Counter App', function () {
             const actual = $(selectorCnt.editNameFieldLabel).isDisplayed();
             expect(actual).toEqual(true);
         })
+
+        it('TC-026 Input for LLF', function () {
+            $(selectorCnt.lowerLimitField).click();
+            const actual = $(selectorCnt.lowerInputField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-027 Input for ULF', function () {
+            $(selectorCnt.upperLimitField).click();
+            const actual = $(selectorCnt.upperInputField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-179 Reset limit field for LLF', function () {
+            $(selectorCnt.lowerLimitField).click();
+            const actual = $(selectorCnt.resetLimitF).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-180 Reset limit field for ULF', function () {
+            browser.refresh();
+            $(selectorCnt.upperLimitField).click();
+            const actual = $(selectorCnt.resetLimitF).isDisplayed();
+            expect(actual).toEqual(true);
+        })
     });
 
     //Homework: TC 28-39
     describe('Default Counter Elements value', function () {
 
+        it('TC-028 Counter Name', function () {
+            const actual = $$(selectorCnt.counterName)[1].getText();
+            expect(actual).toEqual(expectedCnt.counterName);
+        })
+
+        it('TC-029 Count Value', function () {
+            const actual = $(selectorCnt.countValue).getText();
+            expect(actual).toEqual(expectedCnt.countValue);
+        })
+
+        it('TC-030 LLF', function () {
+            browser.refresh();
+            const actual = $(selectorCnt.lowerLimitField).getText();
+            expect(actual).toEqual(expectedCnt.lowerLimitField);
+        })
+
+        it('TC-032 ULF', function () {
+            browser.refresh();
+            const actual = $(selectorCnt.upperLimitField).getText();
+            expect(actual).toEqual(expectedCnt.upperLimitField);
+        })
+
+        it('TC-034 Delete button', function () {
+            const actual = $(selectorCnt.deleteBtn).getText();
+            expect(actual).toEqual(expectedCnt.deleteBtn);
+        })
+
+        it('TC-035 Reset button', function () {
+            const actual = $(selectorCnt.resetBtn).getText();
+            expect(actual).toEqual(expectedCnt.resetBtn);
+        })
+
+        it('TC-036 Label for Edit Name Field', function () {
+            const actual = $(selectorCnt.editNameFieldLabel).getText();
+            expect(actual).toEqual(expectedCnt.editNameFieldLabel);
+        })
+
+        it('TC-037 Edit Name Field', function () {
+            const actual = $(selectorCnt.editNameField).getValue();
+            expect(actual).toEqual(expectedCnt.editNameField);
+        })
+
+        it('TC-038 Input for LLF = 1', function () {
+            $(selectorCnt.lowerLimitField).click();
+            const actual = $(selectorCnt.lowerInputField).getValue();
+            expect(actual).toEqual(expectedCnt.lowerInputField);
+        })
+
+        it('TC-039 Input for ULF = 3', function () {
+            $(selectorCnt.upperLimitField).click();
+            const actual = $(selectorCnt.upperInputField).getValue();
+            expect(actual).toEqual(expectedCnt.upperInputField);
+        })
 
     });
 });
