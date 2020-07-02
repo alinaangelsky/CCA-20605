@@ -2,12 +2,15 @@ const selectorCnt = require ('../data/selectors.json').counter;
 const selectorGen = require ('../data/selectors.json').general;
 const expectedGen = require ('./../data/expected.json').general;
 const expectedDCF = require ('../data/expected.json').defaultCounterFunctionality;
-const inputNumber = require ('./../helpers/inputNumber');
+const inputNumber = require('../helpers/inputNumber.js').inputNumber;
 
 describe('Default counter functionality', function () {
 
-    it('TC-040 Subtract 1 gives -1', function () {
+    before(() => {
         browser.url('');
+    });
+
+    it('TC-040 Subtract 1 gives -1', function () {
         const button = $$(selectorCnt.blackBtn)[0];
         button.click();
         const countValue = $(selectorCnt.countValue).getText();
@@ -15,6 +18,8 @@ describe('Default counter functionality', function () {
     })
 
     it('TC-041 Add 3 gives 2', function () {
+        const buttonOne = $$(selectorCnt.blackBtn)[0];
+        buttonOne.click();
         const button = $$(selectorCnt.blackBtn)[5];
         button.click();
         const countValue = $(selectorCnt.countValue).getText();
@@ -34,15 +39,14 @@ describe('Default counter functionality', function () {
     })
 
     it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
-        browser.refresh();
-        inputNumber('left', expectedDCF.inputMin);
-        inputNumber('right', expectedDCF.inputMin);
-        const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
-        expect(actual).toEqual(+expectedDCF.countValueTC041);
+          //      browser.pause(5000);
+       inputNumber('right', expectedDCF.inputMin);
+       inputNumber('left', expectedDCF.inputMin);
+       const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
+       expect(actual).toEqual(+expectedDCF.countValueTC041);
     })
 
     it('TC-120 LLF accept 5 if ULF value is higher than 5', function () {
-        browser.refresh();
         inputNumber('right', expectedDCF.inputMax);
         inputNumber('left', expectedDCF.input);
         const result = $(selectorCnt.error).isDisplayed();
@@ -50,14 +54,19 @@ describe('Default counter functionality', function () {
     })
 
     it('TC-144 ULF accept 5', function () {
-        browser.refresh();
         inputNumber('right', expectedDCF.input);
         const result = $(selectorCnt.error).isDisplayed();
         expect(result).toEqual(false);
     })
+});
+
+describe('Default counter functionality, Reset limit fields ', function () {
+
+    before(() => {
+        browser.url('');
+    });
 
     it('TC-183 Count Value did nоt change after reset limit fields to the default value state ', function () {
-        browser.refresh();
         $(selectorCnt.lowerLimitField).click();
         $(selectorCnt.upperLimitField).click();
         const resetLF = $$(selectorCnt.resetLimitF)[0];
@@ -69,7 +78,6 @@ describe('Default counter functionality', function () {
     });
 
     it('TC-184 Count Value did not change after reset limit fields to the default value state ', function () {
-        browser.refresh();
         inputNumber('left', expectedDCF.countValueTC041);
         inputNumber('right', expectedDCF.inputMax);
         const lowerButton = $$(selectorCnt.blackBtn)[3];
@@ -85,7 +93,6 @@ describe('Default counter functionality', function () {
     });
 
     it('TC-185 Total Result did not change after reset limit fields to the default value state ', function () {
-        browser.refresh();
         $(selectorCnt.lowerLimitField).click();
         $(selectorCnt.upperLimitField).click();
         const resetLF = $$(selectorCnt.resetLimitF)[0];
@@ -97,7 +104,6 @@ describe('Default counter functionality', function () {
     });
 
     it('TC-186 Total Value did not change after reset limit fields to the default value state', function () {
-        browser.refresh();
         inputNumber('left', expectedDCF.countValueTC041);
         inputNumber('right', expectedDCF.inputMax);
         const lowerButton = $$(selectorCnt.blackBtn)[3];
@@ -111,4 +117,5 @@ describe('Default counter functionality', function () {
         const res = $(selectorGen.totalResult);
         expect(res.getText()).toEqual(expectedGen.totalResultTC186);
     });
-});
+
+ });

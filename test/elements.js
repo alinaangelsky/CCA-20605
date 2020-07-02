@@ -3,6 +3,7 @@ const expectedGen = require ('./../data/expected.json').general;
 const selectorCnt = require ('../data/selectors.json').counter;
 const expectedCnt = require ('./../data/expected.json').counter;
 
+
 describe('Complex Counter App', function () {
 
     describe('Getting to the page', function () {
@@ -167,7 +168,6 @@ describe('Complex Counter App', function () {
         })
     });
 
-    //Homework: TC 28-39
     describe('Default Counter Elements value', function () {
 
         it('TC-028 Counter Name', function () {

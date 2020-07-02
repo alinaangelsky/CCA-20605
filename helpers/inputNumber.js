@@ -1,4 +1,5 @@
 const selectorCnt = require ('../data/selectors.json').counter;
+const selectorGen = require ('../data/selectors.json').general;
 
 function inputNumber (str, value) {
     if (str === "left") {
@@ -18,4 +19,12 @@ function inputNumber (str, value) {
     }
 }
 
-module.exports = inputNumber;
+function inputValue (name, value){
+    if (name === 'title'){
+        $(selectorGen.addNameField).setValue(value);
+    } else {
+        $(selectorGen.defaultValueField).setValue(value);
+    }
+}
+
+module.exports = { inputNumber, inputValue}

@@ -23,6 +23,7 @@
     "defaultNumberBlackBtn": 6,
     "blackBtn": ["-1", "-2", "-3", "1", "2", "3"]
   },
+
   "defaultCounterFunctionality": {
     "countValue": "0",
     "countValueTC040": "-1",
@@ -38,7 +39,8 @@
     "countValueTC192res": "999",
     "countValueTC193": "10000000",
     "countValueTC193res": "9999998",
-    "countValueTC194res": "10000003"
+    "countValueTC194res": "10000003",
+    "addNameField": "Abcdef"
   }
 }
 
