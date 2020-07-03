@@ -39,7 +39,6 @@ describe('Default counter functionality', function () {
     })
 
     it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
-          //      browser.pause(5000);
        inputNumber('right', expectedDCF.inputMin);
        inputNumber('left', expectedDCF.inputMin);
        const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
