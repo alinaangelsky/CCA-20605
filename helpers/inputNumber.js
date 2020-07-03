@@ -21,9 +21,14 @@ function inputNumber (str, value) {
 
 function inputValue (name, value){
     if (name === 'title'){
-        $(selectorGen.addNameField).setValue(value);
-    } else {
-        $(selectorGen.defaultValueField).setValue(value);
+        $(selectorGen.addNameField).setValue('1');
+        browser.keys('Backspace');
+        browser.keys(value);
+        } else {
+        $(selectorGen.defaultValueField).click();
+        browser.keys('Backspace');
+        browser.keys('Backspace');
+        browser.keys(value);
     }
 }
 

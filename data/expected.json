@@ -40,7 +40,11 @@
     "countValueTC193": "10000000",
     "countValueTC193res": "9999998",
     "countValueTC194res": "10000003",
-    "addNameField": "Abcdef"
+    "addNameField": "Abcdef",
+    "addNameFieldTC56": "Abcdefg",
+    "addNameFieldTC37": "",
+    "addValueField": "A",
+    "secondCounterName": "2. Abcdefg"
   }
 }
 
